@@ -1,0 +1,18 @@
+{
+    "port": 3978,
+    "MicrosoftAppId": "",
+    "MicrosoftAppPassword": "",
+    "QnAKnowledgebaseId": "",
+    "QnAEndpointKey": "",
+    "QnAEndpointHostName": "",
+    "LuisAppId": "",
+    "LuisAPIKey": "",
+    "LuisAPIHostName": "luis-demo-02.cognitiveservices.azure.com",
+    "cosmoDbEndpoint": "",
+    "cosmoDbAuthKey": "",
+    "cosmoDbDatabase": "",
+    "cosmoDbSavingsContainer": "",
+    "cosmoDbCurrentsContainer": "",
+    "cosmoDbSavingsPartitionKey": "/id",
+    "cosmoDbCurrentsPartitionKey": "/id"
+}
