@@ -3,5 +3,6 @@
 
 from .dispatch_bot import DispatchBot
 from .utils import Utils
+from .azure_translator import AzureTranslator
 
-__all__ = ["DispatchBot", "Utils"]
+__all__ = ["DispatchBot", "Utils", "AzureTranslator"]

@@ -7,6 +7,7 @@ from botbuilder.azure import CosmosDbStorage
 
 from config import DefaultConfig
 from bots.utils import Utils
+from bots.azure_translator import AzureTranslator
 
 from typing import List
 import uuid
@@ -42,6 +43,9 @@ class DispatchBot(ActivityHandler):
         )
         self.recognizer = LuisRecognizer(luis_application, luis_options, True)
 
+        # configure translation service
+        self.azure_translator = AzureTranslator(self.config)
+
     async def on_turn(self, turn_context: TurnContext):
         await super().on_turn(turn_context)
 
@@ -56,6 +60,14 @@ class DispatchBot(ActivityHandler):
 
     async def on_message_activity(self, turn_context: TurnContext):
         if turn_context.activity.text != None:
+            # detect the language and translate if it is non-english
+            detect_language = self.azure_translator.detect_language(
+                turn_context.activity.text)
+            if detect_language != 'en':
+                tralnsation_result = self.azure_translator.translate(
+                    turn_context.activity.text, detect_language, ['en'])
+                turn_context.activity.text = tralnsation_result['en']
+                print(turn_context.activity.text)
             # First, we use the dispatch model to determine which cognitive service (LUIS or QnA) to use.
             recognizer_result = await self.recognizer.recognize(turn_context)
 
