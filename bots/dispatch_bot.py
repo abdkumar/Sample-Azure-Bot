@@ -56,7 +56,8 @@ class DispatchBot(ActivityHandler):
     ):
         for member in members_added:
             if member.id != turn_context.activity.recipient.id:
-                await turn_context.send_activity("Welcome to ABC Bank\n.How can I help you?".format())
+                await turn_context.send_activity("Welcome to ABC Bank")
+                await turn_context.send_activity("How can I help you?")
 
     async def on_message_activity(self, turn_context: TurnContext):
         if turn_context.activity.text != None:
@@ -67,7 +68,6 @@ class DispatchBot(ActivityHandler):
                 tralnsation_result = self.azure_translator.translate(
                     turn_context.activity.text, detect_language, ['en'])
                 turn_context.activity.text = tralnsation_result['en']
-                print(turn_context.activity.text)
             # First, we use the dispatch model to determine which cognitive service (LUIS or QnA) to use.
             recognizer_result = await self.recognizer.recognize(turn_context)
 
