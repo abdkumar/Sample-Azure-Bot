@@ -14,5 +14,8 @@
     "cosmoDbSavingsContainer": "",
     "cosmoDbCurrentsContainer": "",
     "cosmoDbSavingsPartitionKey": "/id",
-    "cosmoDbCurrentsPartitionKey": "/id"
+    "cosmoDbCurrentsPartitionKey": "/id",
+    "translatorSubscriptionKey": "",
+    "translatorEndpoint": "",
+    "translatorLocation": ""
 }
