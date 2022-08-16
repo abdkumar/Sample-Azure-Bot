@@ -1,0 +1,6 @@
+# Byte-compiled / optimized / DLL files
+bots/__pycache__/
+configDetails.json
+
+
+
